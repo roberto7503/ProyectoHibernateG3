@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectohibernateg3.controller.LibroController">
+    <children>
+        <Label layoutX="20.0" layoutY="20.0" text="Registro de libros">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="65.0" text="Título:" />
+        <TextField fx:id="txtTitulo" layoutX="70.0" layoutY="60.0" prefWidth="180.0" promptText="Título del libro" />
+        <Label layoutX="20.0" layoutY="105.0" text="Autor:" />
+        <TextField fx:id="txtAutor" layoutX="70.0" layoutY="100.0" prefWidth="180.0" promptText="Autor del libro" />
+        <Label layoutX="20.0" layoutY="145.0" text="Año:" />
+        <TextField fx:id="txtAnio" layoutX="70.0" layoutY="140.0" prefWidth="180.0" promptText="Año de publicación" />
+        <Label layoutX="20.0" layoutY="185.0" text="Precio:" />
+        <TextField fx:id="txtPrecio" layoutX="70.0" layoutY="180.0" prefWidth="180.0" promptText="Precio del libro" />
+        <Button fx:id="btnGuardar" layoutX="20.0" layoutY="225.0" mnemonicParsing="false" onAction="#guardarLibro" text="Guardar libro" />
+        <Button fx:id="btnCargar" layoutX="120.0" layoutY="225.0" mnemonicParsing="false" onAction="#cargarLibros" text="Cargar libros" />
+        <TableView fx:id="tblLibros" layoutX="20.0" layoutY="265.0" prefHeight="260.0" prefWidth="610.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="colTitulo" prefWidth="197.0000228881836" text="Título" />
+                <TableColumn fx:id="colAutor" prefWidth="143.0" text="Autor" />
+                <TableColumn fx:id="colAnio" prefWidth="97.39993286132812" text="Año" />
+                <TableColumn fx:id="colPrecio" prefWidth="111.4000244140625" text="Precio" />
+            </columns>
+        </TableView>
+      <Button fx:id="btnModificar" layoutX="214.0" layoutY="225.0" mnemonicParsing="false" onAction="#modificarLibro" text="Modificar libro" />
+      <Button fx:id="btnEliminar" layoutX="325.0" layoutY="225.0" mnemonicParsing="false" onAction="#eliminarLibro" text="Eliminar llibro" />
+      <Button fx:id="btnLimpiar" layoutX="427.0" layoutY="225.0" mnemonicParsing="false" onAction="#limpiarCampos" text="Limpiar campos" />
+    </children>
+</AnchorPane>
