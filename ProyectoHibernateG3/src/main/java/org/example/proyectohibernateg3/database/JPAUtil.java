@@ -18,12 +18,19 @@ public class JPAUtil {
         if (emf == null || !emf.isOpen()) {
             String password = System.getenv("BD_PASSWORD");
             if (password == null || password.isBlank()) {
-                throw new IllegalStateException("La variable de entorno BD_PASSWORD no está definida o está vacía.");
+                // Fallback por defecto si no se carga la variable de entorno
+                password = "123";
             }
 
             Map<String, Object> properties = new HashMap<>();
             properties.put("jakarta.persistence.jdbc.password", password);
-            emf = Persistence.createEntityManagerFactory("bibliotecaPU", properties);
+            try {
+                emf = Persistence.createEntityManagerFactory("bibliotecaPU", properties);
+            } catch (Exception ex) {
+                System.err.println("=== ERROR AL CREAR SESSIONFACTORY ===");
+                ex.printStackTrace();
+                throw ex;
+            }
         }
     }
 
